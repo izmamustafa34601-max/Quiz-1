@@ -1,33 +1,35 @@
-/*Write a program for a tailor shop. Read N dresses stitched and charge per dress. If charge > 1000 apply 5% discount.
- Print discounted charge and total revenue. Use variables, loops, IO and if/else. Push code to GitHub and paste link.*/
 #include <iostream>
 using namespace std;
 
 int main() {
-	//variable declaration
-    int n;
-    float price, discountedPrice, total = 0,discount = 0.05;
-    //inputing the value
-    cout << "Enter number of dresses stitched: ";
-    cin >> n;
-    //processing the input
-    for (int i = 1; i <= n; ++i) {
-        cout << "Enter charge for dress " << i << ": ";
-        cin >> price;
+    int N;
+    int fee;
+    int fullDayCount = 0;
+    int totalRevenue = 0;
 
-        if (price > 1000) {
-            discountedPrice = price * discount; // 5% discount
+    cout << "Enter number of children: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        cout << "Enter fee for child " << i << ": ";
+        cin >> fee;
+
+        totalRevenue += fee;
+
+        if (fee > 600) {
+            cout << "Full Day Pass" << endl;
+            fullDayCount++;
         } else {
-           discountedPrice = price;
+            cout << "Half Day Pass" << endl;
         }
-
-        cout << "Discounted charge for dress " << i << ": " << discountedPrice << endl;
-        total += discountedPrice;
     }
-    //output
-    cout << "Total revenue: " << total << endl;
+
+    cout << "\nTotal Revenue: " << totalRevenue << endl;
+    cout << "Number of Full Day Passes: " << fullDayCount << endl;
 
     return 0;
 }
+
+
 
 
